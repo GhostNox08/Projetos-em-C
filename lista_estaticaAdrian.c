@@ -2,7 +2,7 @@
 
 #define MAX 50
 
-// Definição do tipo da chave
+// DefiniÃ§Ã£o do tipo da chave
 typedef int TIPOCHAVE;
 
 // Estrutura de um elemento da lista
@@ -63,7 +63,7 @@ int insereElementoInicio(LISTA *lista, ELEMENTO elem){
     }
 }
 
-// Insere elemento em uma posição específica
+// Insere elemento em uma posiÃ§Ã£o especÃ­fica
 int insereElementoPosicao(LISTA *lista, ELEMENTO elem, int pos){
     int i;
     if(lista->nroElem >= MAX || pos < 0 || pos > lista->nroElem){
@@ -78,7 +78,7 @@ int insereElementoPosicao(LISTA *lista, ELEMENTO elem, int pos){
     }
 }
 
-// Remove o último elemento
+// Remove o Ãºltimo elemento
 int removeElementoFim(LISTA *lista, ELEMENTO *elem){
     if(lista->nroElem == 0){
         return 0;
@@ -136,7 +136,7 @@ int main(void){
 
     inicializarLista(&lista1);
 
-    // --- Teste de inserções ---
+    // --- Teste de inserÃ§Ãµes ---
     printf("--- Testando Insercoes ---\n");
     e.chave = 10;
     insereElementoFim(&lista1, e);
@@ -145,46 +145,46 @@ int main(void){
     e.chave = 30;
     insereElementoFim(&lista1, e);
     
-    exibirLista(&lista1); // Saída esperada: LISTA: 20 10 30
-    printf("Tamanho da lista: %d\n\n", tamanhoLista(&lista1)); // Saída esperada: 3
+    exibirLista(&lista1); // SaÃ­da esperada: LISTA: 20 10 30
+    printf("Tamanho da lista: %d\n\n", tamanhoLista(&lista1)); // SaÃ­da esperada: 3
     
-    // Teste de inserção em posição específica
+    // Teste de inserÃ§Ã£o em posiÃ§Ã£o especÃ­fica
     printf("--- Testando insereElementoPosicao ---\n");
     e.chave = 15;
     insereElementoPosicao(&lista1, e, 1);
-    exibirLista(&lista1); // Saída esperada: LISTA: 20 15 10 30
-    printf("Tamanho da lista: %d\n\n", tamanhoLista(&lista1)); // Saída esperada: 4
+    exibirLista(&lista1); // SaÃ­da esperada: LISTA: 20 15 10 30
+    printf("Tamanho da lista: %d\n\n", tamanhoLista(&lista1)); // SaÃ­da esperada: 4
     
     // --- Teste de buscas ---
     printf("--- Testando Busca ---\n");
     int pos = buscaElemento(&lista1, 15);
     if (pos != -1) {
-        printf("Elemento com chave 15 encontrado na posicao %d.\n\n", pos); // Saída esperada: 1
+        printf("Elemento com chave 15 encontrado na posicao %d.\n\n", pos); // SaÃ­da esperada: 1
     } else {
         printf("Elemento com chave 15 nao encontrado.\n\n");
     }
     
-    // --- Teste de remoções ---
+    // --- Teste de remoÃ§Ãµes ---
     printf("--- Testando Remocoes ---\n");
     
     // Removendo do fim
     removeElementoFim(&lista1, &e);
-    printf("Elemento removido do fim: %d\n", e.chave); // Saída esperada: 30
-    exibirLista(&lista1); // Saída esperada: LISTA: 20 15 10
+    printf("Elemento removido do fim: %d\n", e.chave); // SaÃ­da esperada: 30
+    exibirLista(&lista1); // SaÃ­da esperada: LISTA: 20 15 10
     
-    // Removendo do início
+    // Removendo do inÃ­cio
     removeElementoInicio(&lista1, &e);
-    printf("Elemento removido do inicio: %d\n", e.chave); // Saída esperada: 20
-    exibirLista(&lista1); // Saída esperada: LISTA: 15 10
+    printf("Elemento removido do inicio: %d\n", e.chave); // SaÃ­da esperada: 20
+    exibirLista(&lista1); // SaÃ­da esperada: LISTA: 15 10
     
     // Removendo por chave
     removeElementoChave(&lista1, 15);
     printf("Removendo elemento com chave 15.\n");
-    exibirLista(&lista1); // Saída esperada: LISTA: 10
+    exibirLista(&lista1); // SaÃ­da esperada: LISTA: 10
     
     printf("\nTeste final da lista:\n");
     exibirLista(&lista1);
-    printf("Tamanho da lista final: %d\n", tamanhoLista(&lista1)); // Saída esperada: 1
+    printf("Tamanho da lista final: %d\n", tamanhoLista(&lista1)); // SaÃ­da esperada: 1
     
     return 0;
 }
